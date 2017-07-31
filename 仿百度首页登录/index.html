@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="layer/layer.js"></script>
+	<style type="text/css">
+		*{
+			margin:0 ;
+			padding: 0;
+
+		}
+		.head{
+          height: 40px;
+          width: 100%;
+          border-bottom:1px solid #ebebeb; 
+		}
+		.cen{
+			margin: 0 auto;
+			width: 900px;
+		}
+		a{
+			text-decoration: none;
+			color: #000;
+		}
+		.cen div{
+			float: right;
+			margin-right: 10px;
+			line-height: 40px;
+		}
+		.cen .hf{
+			float: left;
+			line-height: 40px;
+		}
+		.login-text input{
+			height: 30px;
+			width: 200px;
+			margin-top: 15px;
+		}
+		.login-sub input{
+			height: 40px;
+			width: 200px;
+			margin-top: 30px;
+			font-size: 20px;
+		}
+		.login-text{
+			margin-left: 50px;
+		}
+		.login-sub{
+			margin-left: 50px;
+
+		}
+		.login{
+			/*border: 1px solid red;*/
+			width: 200px;
+			height: 200px;
+			margin-top: 30px;
+            display: none;
+		}
+	#showimg{
+		position: absolute;
+		width: 100%;
+		height:150px;
+		background-color: #fff;
+         left: 0px;
+         top: 0px;
+         display: none;
+	}
+	.head{
+		width: 100%;
+		height: 40px;
+	}
+	.cont{
+		width: 900px;
+		height: 40px;
+		margin: 0 auto;
+	}
+	.cont-left{
+		float: left;
+		line-height: 40px;
+	}
+	.cont-right{
+		float: right;
+		line-height: 40px;
+	}
+	.img{
+		width: 900px;
+		margin:0 auto; 
+		margin-top: 10px;
+	}
+	.img div{
+		float: left;
+	} 
+	.img img{
+		width: 100px;
+		margin-right: 10px;
+	}
+	</style>
+	<script type="text/javascript">
+		function loginbox(){
+			layer.open({
+				// type 为1 弹出一个div
+				type:1,   
+				title:"登录",
+				// 弹出框的大小
+				area:["300px","300px"],
+				// 获取弹出框的id 即内容
+				content:$("#login")
+			});
+				
+			
+		}
+		function login(){
+			var user=$("#username").val();
+			var pass=$("#password").val();
+			if (user==''||pass=='') {
+				layer.msg("用户名和密码不能为空",{
+					icon:5,
+					time:1000,
+				});
+				// alert("用户和密码不能为空");
+			}
+		}
+        function showImg(){
+        	$("#showimg").slideDown();
+        	        }
+        function hideImg(){
+        	$("#showimg").slideUp();
+        }
+
+        $(function(){
+        	// alert(localStorage.getItem("k-bg"));
+        	if(localStorage.getItem("k-bg")){
+                 $("body").css("backgroundImage","url("+localStorage.getItem("k-bg")+")");
+        	}else {
+        		$("body").css("backgroundColor","none");
+        	}
+        	$(".img img").click(function(){
+                  var src=$(this).attr("src");
+                  $("body").css("backgroundImage","url("+src+")");
+                  localStorage.setItem("k-bg",src);
+        	});
+        });
+	</script>
+</head>
+<body>
+	<div class="head">
+	<div class="cen">
+	    <div class="hf"><a href="javascript:;" onclick="showImg()">换皮肤</a></div>
+		<div class="log"><a href="javascript:;" onclick="loginbox()">登录</a></div>
+		<div class="reg"><a href="javascript:;">注册</a></div>
+	</div>
+	</div>
+    <div class="login" id="login">
+    	<div class="login-text">
+    		<input type="text" name="" placeholder="请输入用户名" id="username">
+    	</div>
+    	<div class="login-text">
+    		<input type="password" name="" placeholder="请输入密码" id="password">
+    	</div>
+    	<div class="login-sub">
+    		<input type="submit" name="" value="登录" onclick="login()">
+    	</div>
+    </div>
+
+    <div id="showimg" >
+    	<div class="head">
+    		<div class="cont">
+    			<div class="cont-left"><a href="javascript:;">热门</a></div>
+    			<div class="cont-right"><a href="javascript:;" onclick="hideImg()">收起</a></div>
+    		</div>
+    	</div>
+    	<div class="img">
+    		<div class="imglist"><img src="img/1.jpg"></div>
+    		<div class="imglist"><img src="img/2.jpg"></div>
+    		<div class="imglist"><img src="img/3.jpg"></div>
+    		<div class="imglist"><img src="img/4.jpg"></div>
+    	</div>
+    </div>
+</body>
+</html>

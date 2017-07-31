@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#div1{
+		 width: 100%;
+		 height: 280px;
+		}
+		.div1{
+			position: relative;
+			width: 250px;
+			height: 220px;
+			border: 1px solid #909090;
+			float: left;
+			margin-left: 20px;
+			top:50px;
+			left: 280px;
+		}
+         .div2,.div1:hover{
+         	cursor: pointer;
+         }
+		.div1 img{
+			position: absolute;
+			width: 154px;
+			height: 154px;
+			/*border: 1px solid red;*/
+			top:66px;
+			left: 96px;
+		}
+        #div2{
+          width: 100%;
+          height: 300px;
+        }
+	   .div2{
+			position: relative;
+			width: 250px;
+			height: 220px;
+			border: 1px solid #909090;
+			float: left;
+			margin-left: 20px;
+			top:20px;
+			left: 280px;
+		}
+		
+		.div3{
+			width: 140px;
+			height: 140px;
+			background-color: #000;
+			background: rgba(0,0,0,0.1);
+			margin: 40px auto;
+			border-radius: 100%;
+		}
+		.div3 img{
+				width: 134px;
+			   height: 134px;
+			position: absolute;
+			left: 58px;
+			top:50px;
+		
+		}
+	</style>
+	<script type="text/javascript" src="jquery-1.8.0.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//  鼠标移入图片向左移动
+			// stop() 防止运动叠加
+			$(".div1").hover(function(){
+				$(this).find('img').stop().animate({'left':'90px'});
+			},function(){
+				$(this).find('img').stop().animate({'left':'96px'});
+			});
+
+			//鼠标移入图片放大
+			$(".div2").hover(function(){
+				$(this).find('img').stop().animate({'width':'140px','height':'140px'});
+			},function(){
+				$(this).find('img').stop().animate({'width':'134px','height':'134px'});
+			});
+		});
+	</script>
+</head>
+<body>
+<!-- 图片左移动 -->
+<div id="div1">
+	<div class="div1">
+		<img src="img/1.jpg">
+	</div>
+	<div class="div1">
+		<img src="img/2.jpg">
+	</div>
+	<div class="div1">
+		<img src="img/3.jpg">
+	</div>
+</div>
+<!-- 图片放大 -->
+<div id="div2">
+	<div class="div2">
+		<div class="div3">
+			<img src="img/22.png">
+		</div>
+	</div>
+	<div class="div2">
+		<div class="div3">
+			<img src="img/22.png">
+		</div>
+	</div>
+	<div class="div2">
+		<div class="div3">
+			<img src="img/22.png">
+		</div>
+	</div>
+</div>
+</body>
+</html>

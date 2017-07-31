@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+	    body{
+	    	background-color: #f7f7f7;
+	    }
+		.jumei{
+			width: 1090px;
+			height: 350px;
+			margin: 20px auto;
+		/*	border: 1px solid red;*/
+			position: relative;
+			overflow: hidden;
+		}
+		.jumei .juimg{
+			width: 1250px;
+            position: absolute;
+            left: -160px;
+            top: 0px;
+		}
+		.jumei-right{
+			position: absolute;
+			width: 465px;
+			height: 322px;
+			top:20px;
+			right: 20px;
+			box-shadow: 0 1px 4px #c5c5c5;
+			background-color: #fff;
+
+		}
+		.jumei .haitao{
+			width: 40px;
+			height: 40px;
+			position: absolute;
+			top:0px;
+			left: 0px;
+		}
+		.jumei-right .jieshu{
+			width: 195px;
+			height: 26px;
+			background-color: #333;
+			color: #fff;
+			position: absolute;
+			left: 145px;
+			top:-20px;
+			text-align: center;
+			line-height: 26px;
+			font-family: arial,'Hiragino Sans GB','\5FAE\8F6F\96C5\9ED1',sans-serif;
+			font-size: 14px;
+		}
+		.jumei-right .jieshao{
+			width: 376px;
+			height: 142px;
+			font-size: 16px;
+			line-height: 24px;
+			display: block;
+			text-decoration: none;
+			color: #767676;
+			position: absolute;
+			left: 46px;
+			top:60px;
+		}
+		.price{
+			color: #000;
+			position: absolute;
+			bottom: 25px;
+			width: 116px;
+			height:36px;
+			font-size: 34px;
+			left: 46px;
+			line-height: 36px;
+			font-family: arial,'Hiragino Sans GB','\5FAE\8F6F\96C5\9ED1',sans-serif;
+		}
+		.price .sleft{
+            font-size: 20px;
+            position:relative;
+            top:-5px;
+
+		}
+		.price .sright{
+			color: #727272;
+			font-size: 14px;
+			margin-left: 5px;
+		}
+		.jisu{
+			position: absolute;
+			bottom: 10px;
+			left: 46px;
+			height: 45px;
+			width: 134px;
+		}
+		.cart{
+			position: absolute;
+			width: 106px;
+			height: 36px;
+			display: block;
+			background-color: #e81a62;
+			color: #fff;
+			font-size: 14px;
+			text-align: center;
+			line-height: 36px;
+			text-decoration: none;
+			bottom: 58px;
+			right: 46px;
+		}
+		.buy{
+			position: absolute;
+			right: 46px;
+			bottom: 10px;
+			font-size: 13px;
+		}
+		.buy span{
+			font-size: 19px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+	if (localStorage.getItem("k-time")=="活动结束") {
+		document.getElementById("time").innerHTML="活动结束";
+		clearInterval(timer);
+	}
+}
+
+function getRTime(){ 
+var EndTime= new Date('2017/2/28 17:17:00'); //截止时间 
+ // localStorage.clear();
+var NowTime = new Date(); 
+var t =EndTime.getTime() - NowTime.getTime();
+var d=Math.floor(t/1000/60/60/24); 
+var h=Math.floor(t/1000/60/60%24); 
+var m=Math.floor(t/1000/60%60); 
+var s=Math.floor(t/1000%60); 
+ if (d==0&&h==0&&m==0&&s==0) {
+ 	document.getElementById("time").innerHTML="活动结束";
+ 	localStorage.setItem("k-time",document.getElementById("time").innerHTML);
+ 	clearInterval(timer);
+ }else{
+document.getElementById("time").innerHTML ="距特卖结束" +"   "+d + " : "+h+" : "+m+" : "+s; 
+ }
+
+} 
+var timer=setInterval(getRTime,1000); 
+	</script>
+</head>
+<body>
+  <div class="jumei">
+  	 <img src="img/jvmei.jpg" class="juimg">
+  	 <img src="img/haitao.jpg" class="haitao">
+  	 <div class="jumei-right">
+  	 	<p class="jieshu" id="time"></p>
+  	 	<a href="javascript:;" class="jieshao">【香港直邮】su:m37呼吸采用葡萄的发酵原理，用古老的发酵方式，让肌肤恢复到婴儿般皮肤状态，婴儿的皮肤弹力好，密度高，皮脂层厚，皮脂层厚就不容易长皱纹，让皮肤特别有弹力，调节改善肤色不均匀的现象，可以很好的增加皮肤的透亮感，提高皮肤水份感，容易上妆，并且对毛孔粗大有明显改善~</a>
+  	 	<p class="price"><span class="sleft">￥</span>729<span class="sright"><del>￥1229</del></span></p>
+  	 	<img class="jisu" src="img/jisu.jpg">
+  	 	<a href="javascript:;" class="cart">加入购物车</a>
+  	 	<p class="buy"><span>123</span>人已购买</p>
+  	 </div>
+  	 
+  </div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="layer/layer.js"></script>
+	<style type="text/css">
+		*{
+			margin:0 ;
+			padding: 0;
+
+		}
+		.head{
+          height: 40px;
+          width: 100%;
+          border-bottom:1px solid #ebebeb; 
+		}
+		.cen{
+			margin: 0 auto;
+			width: 900px;
+		}
+		a{
+			text-decoration: none;
+			color: #000;
+		}
+		.log,.reg{
+			float: right;
+			margin-right: 10px;
+			line-height: 40px;
+		}
+		.login-text input{
+			height: 30px;
+			width: 200px;
+			margin-top: 15px;
+		}
+		.login-sub input{
+			height: 40px;
+			width: 200px;
+			margin-top: 30px;
+			font-size: 20px;
+		}
+		.login-text{
+			margin-left: 50px;
+		}
+		.login-sub{
+			margin-left: 50px;
+
+		}
+		.login{
+			/*border: 1px solid red;*/
+			width: 200px;
+			height: 200px;
+			margin-top: 30px;
+            display: none;
+		}
+	</style>
+	<script type="text/javascript">
+		function loginbox(){
+			layer.open({
+				// type 为1 弹出一个div
+				type:1,   
+				title:"登录",
+				// 弹出框的大小
+				area:["300px","300px"],
+				// 获取弹出框的id 即内容
+				content:$("#login")
+			});
+				
+			
+		}
+	</script>
+</head>
+<body>
+	<div class="head">
+	<div class="cen">
+		<div class="log"><a href="javascript:;" onclick="loginbox()">登录</a></div>
+		<div class="reg"><a href="javascript:;">注册</a></div>
+	</div>
+	</div>
+    <div class="login" id="login">
+    	<div class="login-text">
+    		<input type="text" name="" placeholder="请输入用户名">
+    	</div>
+    	<div class="login-text">
+    		<input type="password" name="" placeholder="请输入密码">
+    	</div>
+    	<div class="login-sub">
+    		<input type="submit" name="" value="登录">
+    	</div>
+    </div>
+</body>
+</html>

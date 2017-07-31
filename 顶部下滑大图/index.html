@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		*{
+			 margin: 0;
+			 padding: 0;
+			 overflow-x:hidden;
+
+		}
+		img{
+			margin: 0 auto;
+			 display: block;
+		}
+		#img{
+			margin-top: -300px;
+		}
+	</style>
+	<script type="text/javascript" src="jquery-1.8.0.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//回调函数   delay（）延时 后执行动画
+         $("#img").animate({'margin-top':'0px'}, 3000,function(){
+         	$("#img").delay(3000).animate({'margin-top':'-300px'},2000);
+         });
+		});
+	</script>
+</head>
+<body> 
+   <img src="img/top.png" id="img">
+   <img src="img/cont.png">
+ 
+</body>
+</html>

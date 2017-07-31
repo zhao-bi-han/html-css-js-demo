@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+	*{
+		padding:0;
+		margin: 0; 
+	}
+		.border{
+			position: relative;
+			width: 360px;
+			height: 30px;
+			border: 2px solid #909090;
+			left: 480px;
+			top:200px;
+			overflow: hidden;
+		}
+		.border ul{
+			position: absolute;
+			top:0px;
+
+		}
+		.border ul li{
+			padding-left: 5px;
+			height: 30px;
+			list-style: none;
+			/*border: 1px solid red;*/
+			line-height: 30px;
+		}
+	</style>
+	<script type="text/javascript" src="jquery-1.8.0.min.js"></script>
+	<script type="text/javascript">
+			var i=0;
+			var timer=setInterval(function(){
+				i++;
+				if (i==5) {
+					$("#ul").css({'top':0+'px'});
+					i=1;
+				}
+				var tp=i*-30;
+                $("#ul").animate({'top':tp+'px'}, 1000);
+			},2000);
+
+	</script>
+</head>
+<body>
+   <div class="border">
+   	 <ul id="ul">
+   	 	<li>组图：陈伟霆巴黎时装周混搭风 型帅十足</li>
+   	 	<li>组图:《琅琊榜2》黄晓明杀青 洒香槟吃蛋糕庆祝</li>
+   	 	<li> 广告:新浪签到好礼 广告:精选新闻app</li>
+   	 	<li>冯小刚曝新片长镜头耗七百万</li>
+   	 	<li>组图：陈伟霆巴黎时装周混搭风 型帅十足</li>
+   	 </ul>
+   </div>
+
+</body>
+</html>

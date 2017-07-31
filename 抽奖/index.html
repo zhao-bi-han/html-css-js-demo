@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		.btn{
+			position: relative;
+			/*width: 280px;*/
+			height: 100px;
+		  /*  margin: 0 auto;*/
+			top:50px;
+			left: 400px;
+		}
+		.btn input{
+			width: 80px;
+			height: 40px;
+			float: left;
+			margin-left:100px; 
+		}
+		img{
+			width: 300px;
+			height: auto;
+			position: absolute;
+			left: 500px;
+			top: 150px;
+		}
+
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var btn1=document.getElementById("btn1");
+			var btn2=document.getElementById("btn2");
+			var img=document.getElementById("img");
+			var imgArray=['img/1.jpg','img/2.jpg','img/3.jpg','img/5.jpg','img/6.jpg','img/7.jpg','img/jiang.png'];
+			var timer=null;
+			//点击开始抽奖
+			btn1.onclick=function(){
+				//防止定时器叠加
+				clearInterval(timer);
+              timer=setInterval(function(){
+              	//产生随机数
+              	var num=Math.floor(Math.random()*(6+1-0)+0);
+              	//设置图片src 属性
+              	img.setAttribute("src",imgArray[num]);
+              },100);
+			}
+			//点击停止抽奖
+			btn2.onclick=function(){
+				clearInterval(timer);
+				//使没有中奖出现的概率增大
+				var num1=Math.random()*10;
+				if(num1<8){
+                 img.setAttribute("src","img/jiang.png");
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+   <div class="btn">
+   	 <input type="button" name="" value="开始抽奖" id="btn1">
+   	 <input type="button" name="" value="停止抽奖" id="btn2">
+   </div>
+   <img src="img/2.jpg" id="img">
+</body>
+</html>

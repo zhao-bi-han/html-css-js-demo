@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.jd{
+			position: relative;
+			width: 500px;
+			height:500px;
+			border: 1px solid #909090;
+			margin: 50px auto;
+			background-image: url(1.png);
+			background-position: center;
+			overflow: hidden;
+	
+		}
+		.guang{
+			position: absolute;
+			width: 30px;
+			height: 500px;
+			background: linear-gradient(to left,transparent,rgba(255,255,255,0.2),transparent);
+			transform: skew(-30deg,0);
+			left: -172px;
+
+		}
+		.jd:hover .guang{
+			left: 639px;
+			transition: left 1s;
+		}
+	</style>
+</head>
+<body>
+   <div class="jd">
+   	 <div class="guang"></div>
+   </div>
+</body>
+</html>

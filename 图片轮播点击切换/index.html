@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<script type="text/javascript" src="js/move.js"></script>
+	<script type="text/javascript">
+		function getbyclass(oparent,aclass){
+			var aEle=oparent.getElementsByTagName('*');
+			var result=[];
+			for(var i=0;i<aEle.length;i++){
+				if(aEle[i].className==aclass){
+					result.push(aEle[i]);
+				}
+			}
+			return result;
+		}
+
+		window.onload=function(){
+			var odiv=document.getElementById('body');
+			var left=getbyclass(odiv,'left')[0];
+			var right=getbyclass(odiv,'right')[0];
+			var bg_left=getbyclass(odiv,'bg_left')[0];
+			var left_img=bg_left.getElementsByTagName('img')[0];
+			var bg_right=getbyclass(odiv,'bg_right')[0];
+			var right_img=bg_right.getElementsByTagName('img')[0];
+			var smallimg=getbyclass(odiv,'smallimg')[0];
+			var sli=smallimg.getElementsByTagName('li');
+			var sul=smallimg.getElementsByTagName('ul')[0];
+			var bigimg=getbyclass(odiv,'bigimg')[0];
+			var bli=bigimg.getElementsByTagName('li');
+			
+
+			var nowZindex=2;
+			var now=0;
+			move(sli[0],'opacity',100);
+			sul.style.width=sli[0].offsetWidth*sli.length+'px';
+			//向左向右
+			bg_left.onmouseover=function(){
+				move(this,'opacity',100);
+			}
+			bg_left.onmouseout=function(){
+				move(this,'opacity',0);
+			}
+			bg_right.onmouseover=function(){
+				move(this,'opacity',100);
+			}
+			bg_right.onmouseout=function(){
+				move(this,'opacity',0);
+			}
+
+		  //单鼠标点击小图片时
+		  for(var i=0;i<sli.length;i++){
+		  	sli[i].index=i;
+		  	sli[i].onclick=function(){
+		  	 	//当此图已经显示再点击不动
+		  	 	if(this.index==now){
+		  	 		return;
+		  	 	}
+		  	 	now=this.index;
+             	//
+             	tab();
+             }
+		  	 //小图片鼠标经过背景变化
+		  	 sli[i].onmouseover=function(){
+		  	 	move(this,'opacity',100);
+		  	 }
+		  	 sli[i].onmouseout=function(){
+		  	 	if(this.index!=now){
+		  	 		move(this,'opacity',50);
+		  	 	}	
+		  	 }
+		  	}
+		  // 大图片显示
+		  function tab(){
+		  	bli[now].style.zIndex=nowZindex++;
+		  	for(var i=0;i<sli.length;i++){
+		  		move(sli[i],'opacity',50);
+		  	}
+		  	move(sli[now],'opacity',100);
+		  	bli[now].style.height=0;
+		  	move(bli[now],'height',400);
+
+		  	if(now==0){
+		  		move(sul,'left',0);   
+		  	}else if (now==sli.length-2) {
+		  		move(sul,'left',-(now-2)*sli[0].offsetWidth);
+		  	}
+		  	else if (now==sli.length-1) {
+		  		move(sul,'left',-(now-3)*sli[0].offsetWidth);
+		  	}else{
+		  		move(sul,'left',-(now-1)*sli[0].offsetWidth);
+		  	}
+		  }
+          //左右按钮
+          left_img.onclick=function(){
+          	now--;
+          	if(now==-1){
+          		now=bli.length-1;
+          	}
+          	tab();
+          }
+          right_img.onclick=function(){
+          	now++;
+          	if(now==bli.length){
+          		now=0;
+          	}
+          	tab();
+          }
+          //图片自动播放
+          var timer=setInterval(right_img.onclick,2000);
+          odiv.onmouseover=function(){
+          	clearInterval(timer);
+          }
+          odiv.onmouseout=function(){
+          	timer=setInterval(right_img.onclick,2000);
+          }
+      }
+  </script>
+</head>
+<body>
+	<div id="body">
+		<div class="bigimg">
+			<ul>
+				<div class="bg_left">
+					<img src="img/left.png">
+				</div>		
+				<div class="bg_right">
+					<img src="img/right.png">
+				</div>
+				<li style="z-index: 1;"><img src="img/1.png"></li>
+				<li><img src="img/2.png"></li>
+				<li><img src="img/3.png"></li>
+				<li><img src="img/4.png"></li>
+				<li><img src="img/5.png"></li>
+				<li><img src="img/6.png"></li>
+				<li><img src="img/7.png"></li>
+				<li><img src="img/8.png"></li>
+			</ul>
+		</div>
+		<div class="smallimg">
+			<ul>
+				<li><img src="img/1.png"></li>
+				<li><img src="img/2.png"></li>
+				<li><img src="img/3.png"></li>
+				<li><img src="img/4.png"></li>
+				<li><img src="img/5.png"></li>
+				<li><img src="img/6.png"></li>
+				<li><img src="img/7.png"></li>
+				<li><img src="img/8.png"></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		#body{
+			position: relative;
+			background-color: #f1f1f1;
+			width: 300px;
+			height: 490px;
+			left: 40%;
+			top:50px;
+			color: #fff;
+		}
+		ul{
+			position: absolute;
+			margin: 0;
+			padding: 0;
+			left: 17px;
+		}
+		li{
+			width: 70px;
+			height: 70px;
+			background-color: #fff;
+			float: left;
+			list-style: none;
+			margin-left: 15px;
+			margin-top: 15px;
+			background-color: #2f2e2e;
+		}
+		h2{
+			text-align: center;
+			padding-top: 10px;
+			margin: 0;
+		}
+		p{
+			text-align: center;
+			padding-top: 6px;
+			margin:0;
+			font-family:SimHei;
+		}
+		#body div{
+			position: absolute;
+			/*border: 1px solid red;*/
+			width: 240px;
+			height: 100px;
+			top: 360px;
+			left: 32px;
+			color:#2f2e2e; 
+		}
+		#body div h2{
+			margin: 0;
+			margin-left:-136px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var arr=[
+			'新年快乐 新年快乐 新年快乐',
+			'春天来了春天来了',
+			'希望发芽了希望发芽了',
+			'大智若愚大智若愚',
+			'勤劳的鸟儿有食吃',
+			'香香的节日香香的节日',
+			'毕业啦',
+			'狮子般的荣耀',
+			' 果实累累 果实累累',
+			' 黄金岁月',
+			'生日快乐生日快乐',
+			'整装待发'
+			];
+			var od=document.getElementById('body');
+			var oli=document.getElementsByTagName('li');
+			var odiv=od.getElementsByTagName('div')[0];
+			for(var i = 0;i<oli.length; i++){
+				oli[i].index=i;
+				oli[i].onmouseover=function(){
+					for(var i=0;i<oli.length;i++){
+						oli[i].style.backgroundColor='#2f2e2e';
+						oli[i].style.color='#fff';
+					}
+					this.style.backgroundColor='#fff';
+					this.style.color='#000';
+					odiv.innerHTML='<h2>'+(this.index+1)+'月活动</h2><p>'+arr[this.index]+'</p>'
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="body">
+		<ul>
+			<li style="background-color: #fff;color: #000"><h2>1</h2><p>JAN</p></li>
+			<li><h2>2</h2><p>FER</p></li>
+			<li><h2>3</h2><p>MAR</p></li>
+			<li><h2>4</h2><p>APR</p></li>
+			<li><h2>5</h2><p>MAY</p></li>
+			<li><h2>6</h2><p>JUN</p></li>
+			<li><h2>7</h2><p>JUL</p></li>
+			<li><h2>8</h2><p>AUG</p></li>
+			<li><h2>9</h2><p>SEP</p></li>
+			<li><h2>10</h2><p>OCT</p></li>
+			<li><h2>11</h2><p>NOV</p></li>
+			<li><h2>12</h2><p>DEC</p></li>
+		</ul>
+		<div>
+			<h2>1月活动</h2>
+			<p>新年快乐 新年快乐 新年快乐</p>
+		</div>
+	</div>
+</body>
+</html>

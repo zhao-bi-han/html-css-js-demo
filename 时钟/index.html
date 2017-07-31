@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		#clock{
+			position: relative;
+			width: 500px;
+			height: 300px;
+			border: 1px solid #909092;
+			left: 34%;
+			top:50px;
+		}
+		#clock ul{
+			position: absolute;
+			left: 50px;
+			width: 331px;
+		}
+		#clock li{
+			/*border: 1px solid red;*/
+			width: 30px;
+            height: 80px;
+            float: left;
+            text-align: center;
+            line-height: 80px;
+            font-size:36px;
+            font-weight: 900; 
+            list-style: none;
+		}
+		#clock span{
+			width: 2px;
+			height: 2px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function() {
+			function num(n) {
+				if(n<10){
+                   return '0'+n;
+				}else{
+					return ''+n;
+				}
+			}
+			var oid=document.getElementById('clock');
+			var ocl=oid.getElementsByTagName('div');
+			function tick (argument) {
+				var odate=new Date();
+				// 得到 年 月 日 时 分 秒
+				var str=num(odate.getFullYear())+num(odate.getMonth()+1)+num(odate.getDate())+num(odate.getHours())+num(odate.getMinutes())+num(odate.getSeconds());
+				for(var i=0;i<ocl.length;i++){
+                 ocl[i].innerHTML=str.charAt(i);
+				}
+			}   
+			setInterval(tick,1000);
+			tick();
+		}
+	</script>
+</head>
+<body>
+<div id="clock">
+<ul>
+<li><div></div></li>
+<li><div></div></li>
+<li><div></div></li>
+<li><div></div></li>
+<li>年</li>
+<li><div></div></li>
+<li><div></div></li>
+<li>月</li>
+<li><div></div></li>
+<li><div></div></li>
+<li>日</li>
+<li></li>
+<li><div></div></li>
+<li><div></div></li>
+<li>:</li>
+<li><div></div></li>
+<li><div></div></li>
+<li>:</li>
+<li><div></div></li>
+<li><div></div></li>
+</ul>
+</div>
+</body>
+</html>

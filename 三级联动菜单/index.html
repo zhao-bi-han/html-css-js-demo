@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="jquery-1.8.0.min.js"></script>
+	<script type="text/javascript">
+	var num1;
+	var num2;
+           var aprovince=["河北省","山西省","河北省"];
+           var acity=[["石家庄市","张家口市","秦皇岛市"],["太原市","大同市","阳泉市"],["武汉市","孝感市","宜昌市"]];
+           var acountry=[[["无极县","赵县","栾城县"],["柏乡县"," 曲阳县","邢台县"],[" 东光县","海兴县","盐山县"]],[["阳曲县","灵石县","祁 县"],["河曲县","定襄县"," 吉 县"],["蒲 县","万荣县","闻喜县"]],[["河东区","宝坻区","塘沽区"],["昌平区","北辰区"," 静海县"],[" 馆陶县"," 安新县","临城县"]]];
+
+	  $(function(){
+         for(var i=0;i<aprovince.length;i++ ){
+           $("#selProvince").append("<option>"+aprovince[i]+"</option>");
+         }
+         $("#selProvince").change(function(){
+         	$("#selCity").children().not(":eq(0)").remove();
+         	 num1=$(this).children("option:selected").index();
+            var city=acity[num1-1];  //有请选择
+            for(var i = 0;i < city.length; i++){
+            	$("#selCity").append("<option>"+city[i]+"</option>");
+            }
+         });
+         $("#selCity").change(function(){
+         	$("#selCountry").children().not(":eq(0)").remove();
+            num2=$(this).children("option:selected").index();
+          var country=acountry[num1-1][num2-1];
+          for(var i=0;i<country.length;i++){
+            $("#selCountry").append("<option>"+country[i]+"</option>");
+          }
+         });
+	  });
+	</script>
+</head>
+<body>
+ <select id="selProvince">
+ 	<option>---请选择---</option>
+ </select>
+ <select id="selCity">
+ 	<option>---请选择---</option>
+</select>
+ <select id="selCountry">
+ 	<option>---请选择---</option>
+ </select>
+</body>
+</html>

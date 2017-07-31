@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		window.onload=function() {
+			var obox=document.getElementById('box');
+			var ocheck=document.getElementById('check');
+		// 获得后是个数组 括号内是标签 （某个div 下的input标签）
+		var odiv=ocheck.getElementsByTagName('div');
+		var oche=ocheck.getElementsByTagName('input');
+
+		//选中的checkbox 对应的div背景变色
+		for(var i=0;i<oche.length;i++){
+			oche[i].onclick=function(){
+				for(var i=0;i<oche.length;i++){
+					if(oche[i].checked==true){
+						odiv[i].style.backgroundColor="#f88576";
+					}
+					else if (oche[i].checked==false) {
+						odiv[i].style.backgroundColor="#fff";
+					}
+				}
+			}
+		}
+		//全选 全不选
+		obox.onclick=function(){
+			if(obox.checked==false){
+				for(var i=0;i<oche.length;i++){
+					oche[i].checked=false;	
+					odiv[i].style.backgroundColor="#fff";
+				}
+			}
+			else if (obox.checked==true) {
+				for(i=0;i<oche.length;i++){
+					oche[i].checked=true;
+					odiv[i].style.backgroundColor="#f88576";
+				}
+			}
+
+		};
+
+	};
+</script>
+<style type="text/css">
+	body{
+		background-color: #f1f1f1;
+	}
+	.ch{
+		position: relative;
+		left: 200px;
+		top:50px;
+	}
+	#check{
+		position: relative;
+		top:30px;
+	}
+	#check div{
+		position: relative;
+		background-color: #fff;
+		width: 1000px;
+		height: 100px;
+		margin-top: 20px;
+	}
+</style>
+</head>
+<body>
+	<div class="ch">
+		<input type="checkbox" name="" id="box">全选
+		<div id="check">
+			<div>
+				<input type="checkbox" name=""></br>
+			</div>
+			<div>
+				<input type="checkbox" name=""></br>
+			</div>
+
+			<div>
+				<input type="checkbox" name=""></br>
+			</div>
+			<div>
+				<input type="checkbox" name=""></br>
+			</div>
+			<div>
+				<input type="checkbox" name=""></br>
+			</div>
+			<div>
+				<input type="checkbox" name=""></br>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

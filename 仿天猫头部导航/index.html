@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<script type="text/javascript" src="jquery-1.8.0.min.js"></script>
+	<style type="text/css">
+		body{
+			margin: 0;
+			padding: 0;
+		}
+		.head{
+			width: 100%;
+			height: 32px;
+			background-image: url(head.jpg);
+			color: #fff;
+			font-size: 13px;
+		}
+		.head li{
+			list-style: none;
+			float: left;
+			margin-left: 3px;
+			/*border: 1px solid yellow;*/
+			text-align: center;
+			padding-right: 8px;
+			padding-left: 8px;
+		}
+		.head ul{
+			margin: 0;
+			position: absolute;
+			line-height: 32px;
+		}
+		.head a{
+			color: #fff;
+			text-decoration:none; 
+		}
+		.head-right ul{
+			right: 55px;
+			top:0px;
+		}
+		.head-right li div{
+			position: absolute;
+			background-color: #fff;
+			top: 32px;
+			border-bottom: 1px solid #eee;
+			border-right: 1px solid #eee;
+			border-left: 1px solid #eee;
+		}
+		.xian{
+			height: 14px;
+			width: 1px;
+			border-left: 1px solid #ccc;
+			margin-top: 9px;
+		}
+
+		.xl_1{
+			
+			width: 100px;
+			height: 60px;
+			left: 6%;
+			display: none;
+		}
+
+		.xl_2{
+			width: 90px;
+			height: 60px;
+			left: 41.9%;		
+			display: none;
+		}
+		.xl_4{
+			width: 100px;
+			height: 100px;
+			left: 80.5%;
+			display: none;
+		}
+		.head-right img{
+			position: absolute;
+			display: none;
+			left: 45.5%;
+			top: 29px;
+		}
+		.head-right li div ul{
+			position: absolute;
+			margin: 0;
+			width: 100px;
+			height: 100px;
+			left: 0px;
+			padding: 0;
+			top:5px;
+		}
+		.head-right li div li{
+			height: 20px;
+		}
+		#jg:hover{
+			background-color: #fff;	
+		}
+		#jg a:hover{
+			color: #c40000;
+		}
+		.name a:hover{
+			color: yellow;
+		}
+       .head-right li div a{
+       	color:#000;
+       }
+       .mid{
+       	width: 100%;
+       	height: 140px;
+       	background-image: url(bj.jpg);
+       	background-repeat: repeat-y;
+       }
+   </style>
+   <script type="text/javascript">
+   	$(document).ready(function(){
+   		$(".head-right ul li").mouseover(function(){
+   			var id=$(this).index();
+   			$(this).children('div').show();
+   			$(this).children('img').show();
+   			$(this).has('div').children('a').css("color"," #c40000");
+   			$(this).has('i').children('i').css("color"," yellow");
+   			$(this).has('i').children('a').css("color"," yellow");            
+   		});
+   		$(".head-right ul li").mouseleave(function(){
+				$(this).children('div').hide();
+				$(this).children('img').hide();
+				$(this).has('div').children('a').css("color","#fff");
+				$(this).has('i').children('i').css("color"," #fff");
+				$(this).has('i').children('a').css("color"," #fff");
+            });
+
+   	});
+   </script>
+</head>
+<body>
+	<div class="head">
+		<div class="head-left">
+			<ul>
+				<li>Hi,游客</li>
+				<li><a href="">积分<span>123</span></a></li>
+				<li><a href="">消息<span>25</span></li>
+				<li><a href="">退出</li>
+			</ul>
+		</div>
+		<div class="head-right">
+			<ul>
+				<li id="jg">
+					<a href="">我的淘宝</a>
+					<div class="xl_1">
+						<ul>
+							<li><a href="">已买到的宝贝</a></li>
+							<li><a href="">已卖出的宝贝</a></li>
+						</ul>
+					</div>
+				</li>
+				<li class="name"><i class="iconfont">&#xe60d;</i><a href="">我关注的品牌</a></li>
+				<li class="name"><i class="iconfont">&#xe634;</i><a href="" >购物车</a></li>
+				<li id="jg">
+					<a href="">收藏夹</a>
+					<div class="xl_2">
+						<ul>
+							<li><a href="">收藏的宝贝</a></li>
+							<li><a href="">收藏的店铺</a></li>
+						</ul>
+					</div>
+				</li>
+				<li class="xian"></li>
+				<li class="name"><i class="iconfont">&#xe6f4;</i>
+					<a href="">手机版</a>
+					<img src="phone.png">
+				</li>
+				<li class="name"><a href="">淘宝网</a></li>
+				<li class="name"><a href="">企业购</a></li>
+				<li id="jg">
+					<a href="">商家支持</a>
+					<div class="xl_4">
+
+					</div>
+				</li>
+				<li><a href="">网站导航</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mid"></div>
+</body>
+</html>

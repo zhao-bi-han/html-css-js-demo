@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		.img{
+			position: relative;
+			width: 760px;
+			height: 300px;
+			border: 1px solid #909090;
+		}
+		.img img{
+			position: absolute;
+			z-index: 1;
+			display: none;
+		} 
+		ul{
+			position: absolute;
+			bottom: 10px;
+			left:300px;
+			z-index: 999;
+		}
+		ul li{
+			list-style: none;
+			width: 10px;
+			height: 10px;
+			background-color: #fff;
+			float: left;
+			margin-left: 10px;
+			border-radius: 100%;
+
+		}
+	</style>
+	<script type="text/javascript" src="jquery-1.8.0.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var i=0;
+			var timer=null;
+			// 初始显示
+
+			$("#img img").eq(0).fadeIn(1500).siblings('img').fadeOut(1500);
+			$("#img ul li").eq(0).css({"background-color":"#909090"}).siblings('li').css({"background-color":"#fff"});
+
+			    changeImg();
+
+             //当鼠标移入移除
+             $("#img li").hover(function(){
+             	i=$(this).index();
+             	show();
+             	clearInterval(timer);
+             },function(){
+             	changeImg();
+             });
+
+             function changeImg(){
+             	timer=setInterval(function(){
+             		i++;
+             		i=(i==4)?0:i;
+             		show();
+             	},2000);
+
+             };
+           //那张图片显示
+             function show(){
+             	$("#img img").eq(i).fadeIn(1500).siblings('img').fadeOut(1500);
+             	$("#img ul li").eq(i).css({"background-color":"#909090"}).siblings('li').css({"background-color":"#fff"});
+             }
+
+         });
+     </script>
+ </head>
+ <body>
+ 	<div class="img" id="img">
+ 		<img src="img/0.jpg" style="display: block;">
+ 		<img src="img/1.jpg">
+ 		<img src="img/2.jpg">
+ 		<img src="img/3.jpg">
+ 		<ul>
+ 			<li></li>
+ 			<li></li>
+ 			<li></li>
+ 			<li></li>
+ 		</ul>
+ 	</div>
+ </body>
+ </html>

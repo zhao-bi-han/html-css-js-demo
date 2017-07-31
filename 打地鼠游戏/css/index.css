@@ -1,0 +1,102 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+/*背景*/
+.bg{
+	position: relative;
+	width: 320px;
+	height: 480px;
+	margin: 50px auto;
+	background-image: url(../img/game_bg.jpg);
+}
+/*背景结束*/
+/*灰太狼*/
+.img{
+	position: absolute;
+	width: 320px;
+	height: 380px;
+	top:100px;
+}
+.img img{
+	position: absolute;
+
+}
+/*灰太狼结束*/
+
+/*得分*/
+.fen{
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	left: 53px;
+	top:8px;
+	font-weight: 700;
+	font-size: 20px;
+	color: #fff;
+	line-height: 30px;
+	text-align: center;
+}
+/*得分结束*/
+
+/*时间倒计时*/
+.time{
+	position: absolute;
+	width: 182px;
+	height: 16px;
+	background-color: red;
+	top:66px;
+	left: 62px;
+	border-radius: 15px;
+
+}
+/*时间倒计时结束*/
+
+/*游戏开始*/
+.start{
+	position: absolute;
+	width: 102px;
+	height: 50px;
+    left: 112px;
+    top:222px;
+    font-weight: 800;
+    font-size: 50px;
+    color: red;
+    text-align: center;
+    line-height: 50px;
+    font-family: youyuan;
+    -webkit-text-stroke:2px red;
+}
+.start:hover{
+	cursor: pointer;
+}
+/*游戏开始结束*/
+
+/*游戏结束*/
+.jieshu{
+	position: absolute;
+	width: 180px;
+	height: 50px;
+	left:80px; 
+	top:210px;
+	font-weight: 700;
+	font-family: YouYuan;
+	color: #E80A15;
+	display: none;
+}
+p:last-child:hover{
+	cursor: pointer;
+}
+p:first-child {
+	font-size: 40px;
+	margin-bottom: 20px;
+	-webkit-text-stroke:2px red;
+}
+p:last-child{
+	font-size: 30px;
+	font-weight: 800;
+	padding-left: 23px;
+	-webkit-text-stroke:1px red;
+}
+/*游戏结束结束*/
+

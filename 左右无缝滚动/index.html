@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#div1{
+			position: relative;
+			width: 800px;
+			height: 200px;
+			/*background-color: red;*/
+			left: 300px;
+			top:100px;
+			overflow: hidden;
+		}
+		#div1 img{
+			width: 200px;
+			height:200px;
+		}
+		#div1 ul {
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		#div1 ul li{
+			list-style: none;
+			float: left;
+			width: 200px;
+			height: 200px;
+		}
+		#left{
+			position: absolute;
+			left: 160px;
+			top: 170px;
+		}
+		#right{
+			position: absolute;
+			left: 1174px;
+			top: 170px;
+		}
+		#left img:hover,#right img:hover{
+			cursor: pointer;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function() {
+			var odiv=document.getElementById('div1');
+			var oul=odiv.getElementsByTagName('ul')[0];
+			var oli=oul.getElementsByTagName('li');
+			var left=document.getElementById('left');
+			var right=document.getElementById('right');
+			var speed=-2;
+			oul.innerHTML=oul.innerHTML+oul.innerHTML;
+			oul.style.width=oli[0].offsetWidth*oli.length+'px'; 
+			function move(){
+				if(oul.offsetLeft<-oul.offsetWidth/2){
+					oul.style.left='0';
+				}
+				//向右移动
+				if(oul.offsetLeft>0){
+					oul.style.left=-oul.offsetWidth/2+'px';
+				}
+	//oul.style.left=oul.offsetLeft+2+'px';
+	oul.style.left=oul.offsetLeft+speed+'px';
+
+}
+var timer=setInterval(move,30);
+odiv.onmouseover=function(){
+	clearInterval(timer);
+}
+odiv.onmouseout=function(){
+	timer=setInterval(move,30);
+}
+left.onclick=function(){
+	speed=-2;
+
+}
+right.onclick=function(){
+	speed=2;
+}
+}
+</script>
+</head>
+<body>
+	<div id="left"><img src="img/left.png" ></div>
+	<div id="div1">
+		<ul>
+			<li><img src="img/1.png"></li>
+			<li><img src="img/2.png"></li>
+			<li><img src="img/3.png"></li>
+			<li><img src="img/4.png"></li>
+		</ul>
+	</div>
+	<div id="right">	<img src="img/right.png" ></div>
+</body>
+</html>
