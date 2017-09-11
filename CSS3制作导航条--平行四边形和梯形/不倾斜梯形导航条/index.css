@@ -23,7 +23,7 @@
 	transform: perspective(0.5em) rotateX(5deg);
 	-moz-transform-origin: bottom;
 	-webkit-transform-origin: bottom;
-	transform-origin: bottom left;
+	transform-origin: bottom;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 }
