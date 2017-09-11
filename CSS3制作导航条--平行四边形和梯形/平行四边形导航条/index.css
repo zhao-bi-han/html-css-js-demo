@@ -1,0 +1,37 @@
+.rescal li{
+	position: relative;
+	list-style: none;
+	float: left;
+	padding: 8px 20px;
+	margin-right: 5px;
+	color: #fff;
+	cursor: pointer;
+}
+.rescal li::after{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: -1;
+	background-color: #2175BC;
+	-moz-transform: skewX(-25deg);
+	-webkit-transform: skewX(-25deg);
+	-ms-transform: skewX(-25deg);
+	transform: skewX(-25deg);
+	-moz-border-radius:2px ;
+	-ms-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+}
+.rescal li:hover::after{
+	background-color: #2586D7;
+}
+/*
+  1、 设置z-index:-1。这里如果不设置z-index值为负值的话，就看不到在 li 元素里面的文字了，因为absolute会提高自身元素的层级 
+  2、 使用伪类元素给元素设置倾斜，不会使li中的文字倾斜，如果直接给li添加transform：skewX（），里面的文字会倾斜。
+  3、 给伪类元素设置left、top、right、bottom值为0，使他充满整个父元素。
+  4、 将伪元素和伪类结合使用的时候，必须要注意的是先伪类，再伪元素。比如 .rescal li:hover::after
+  
+*/
