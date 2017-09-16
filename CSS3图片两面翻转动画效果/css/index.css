@@ -1,0 +1,39 @@
+        .img-box{
+			width: 160px;
+			height: 320px;
+			margin: 20px;
+			float: left;
+		}
+		.imgItem{
+			width: 160px;
+			height: auto;
+			overflow: hidden;
+			position: absolute;
+			transition: transform 2s ease;
+		}
+		.imgItem img{
+			width: 160px;		
+		}
+		.imgItem.back a{
+			transform: rotateY(180deg);
+		}
+		.imgItem a{
+			display: block;
+			position: absolute;
+			text-decoration: none;
+			width: 130px;
+			left: 15px;
+			bottom: 30px;
+			padding: 7px 0;
+			color: #fff;
+			font-size: 15px;			
+			text-align: center;
+			background-color: rgba(0,0,0,0.6);			
+			border-radius: 20px;
+		}
+		.front{
+			backface-visibility: hidden;  /*使背面不可见*/
+		}
+		.run{
+			transform: rotateY(180deg);
+		}
