@@ -13,7 +13,7 @@ css 方面主要使用了`transform` 、`backface-visibility`、`transition` 属
         backface-visibility: hidden;  /*使背面不可见*/
 }
 .run{
-	transform: rotateY(180deg);      /*这个class 是jquery动态加class的时候用到的，图片翻转效果就靠这句样式来实现的*/
+	transform: rotateY(180deg);  /*这个class 是jquery动态加class的时候用到的，图片翻转效果就靠这句样式来实现的*/
 }
 ```
 js相关代码
@@ -54,3 +54,5 @@ js相关代码
 	</script>
 
 ```
+效果展示<br>
+![Image text](https://raw.githubusercontent.com/zhao-bi-han/html-css-js-demo/master/CSS3%E5%9B%BE%E7%89%87%E4%B8%A4%E9%9D%A2%E7%BF%BB%E8%BD%AC%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C/show-img/show.GIF)
