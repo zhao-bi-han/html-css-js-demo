@@ -1,0 +1,49 @@
+*{
+    margin:0;
+    padding:0;
+}
+#con{
+    width:400px;
+    height: 600px;
+    margin: 50px auto;
+}
+#color{
+    float: left;
+    margin-top: 10px;
+}
+#color div{
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    margin-right: 10px;
+}
+#color div#red{
+    background-color: red;
+}
+#color div#blue{
+    background-color: blue;
+}
+#color div#green{
+    background-color: green;
+}
+#color div#pink{
+    background-color: pink;
+}
+#color div#yellow{
+    background-color: yellow;
+}
+#clear{
+    float: right;
+}
+#clear a{
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    text-align: center;
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    border:1px solid #E7667E;
+    border-radius:10px;
+    color:#838080;
+}
