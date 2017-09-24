@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>canvas绘制验证码</title>
+    <script>
+       
+     window.onload=function(){
+        draw();
+        var change=document.getElementById("change");
+        change.onclick=function(){
+            draw();
+        }
+     }
+        // 产生随机颜色
+        function randomColor(){
+            var r=Math.floor(Math.random()*256);
+            var g=Math.floor(Math.random()*256);
+            var b=Math.floor(Math.random()*256);
+            return "rgb("+r+",+"+g+",+"+b+")"
+        }
+        
+     function draw(){
+        var canvas=document.getElementById("canvas");
+         var context=canvas.getContext("2d");
+         canvas.width=120;
+         canvas.height=40;
+         context.strokeRect(0, 0, 120, 40);
+         var sCode="A,B,C,D,E,F,G,H,J,K,L,M,N,O,P,Q,X,Y,Z,0,1,2,3,4,5,6,7,8,9";
+         var aCode=sCode.split(',');
+         var aLength=aCode.length;
+         for(var i=0;i<=3;i++){
+             var j=Math.floor(Math.random()*aLength);   // 获取随机索引值
+             var deg=Math.random()*90*Math.PI/180;
+             var txt=aCode[j];
+             var x=20+i*20;   // 文字在canvas的x坐标
+             var y=20+Math.random()*10; //y坐标
+             context.font="bold 21px 微软雅黑";
+             context.translate(x, y);   // 画布旋转，文字不能旋转
+             context.rotate(deg);
+             
+             context.fillStyle=randomColor();   
+            // context.fillText(txt, x, y);    // 未旋转画布时
+             context.fillText(txt, 0, 0);  // 旋转后相对画布的位置
+
+             context.rotate(-deg); // 再讲画布旋转回去
+             context.translate(-x,-y); 
+         }
+         // 产生干扰线   产生八条
+         for(var i=0;i<=8;i++){
+              context.strokeStyle=randomColor();
+              context.beginPath();
+              context.moveTo(Math.random()*120,Math.random()*40);
+              context.lineTo(Math.random()*120,Math.random()*40);
+              context.stroke();  
+         }
+         // 产生干扰点
+        for(var i=1;i<=20;i++){
+            context.strokeStyle=randomColor();
+            context.beginPath();
+            var x=Math.random()*120;
+            var y=Math.random()*40;
+            context.moveTo(x,y);
+            context.lineTo(x+1,y+1);
+            context.stroke();
+        };
+     }
+    </script>
+</head>
+<body>
+     <canvas id="canvas"></canvas>
+     <a href="#" id="change">换一张</a>
+</body>
+</html>
