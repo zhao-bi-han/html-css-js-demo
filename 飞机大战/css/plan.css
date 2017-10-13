@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: url("../img/bg.png")
+}
+.main{
+    position: relative;
+    width: 800px;
+    border:3px solid #e0e0e0;
+    height: 540px;
+    margin: 20px auto;
+    overflow: hidden;
+    /* background-color: #fff;; */
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+#enemy img {
+    position: absolute;
+}
+
+#move {
+    position: absolute;
+    top: 450px;
+    left:380px;
+    width: 80px;
+    cursor: pointer;
+    display: none;
+}
+#move img{
+    width: 80px;
+}
+
+#bullet img {
+    width: 20px;
+    position: absolute;
+}
+
+.start a {
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+    width: 120px;
+    text-align: center;
+    position: absolute;
+    bottom:30px;
+    left: 360px;;
+    background-color: #0EB10E;
+    border-radius: 10px;
+    color: #fff;
+}
+/*暂停*/
+#right{
+    position: absolute;
+    top:10px;
+    right: 10px;
+    display: none;
+}
+#score{
+    float: left;
+    width: 20px;
+    height: 20px;
+    color:#fff;
+    font-size: 26px;
+    font-weight: 600;
+    margin-right: 30px;
+    margin-top: 6px;
+}
+#pause{
+    float: right;
+    width: 40px;
+    height: 40px;   
+    background: url('../img/pause.png') center no-repeat;
+    background-size: 90%;
+    cursor: pointer;
+}
+/*游戏结束*/
+#gameover h1{
+ color:#fff;
+ width: 120px;
+ text-align: center;
+ margin: 0 auto;
+ font-size: 46px;
+ margin-top:160px; 
+}
+#gameover span{
+    display: block;
+    width: 120px;
+    margin:30px auto;
+    text-align: center;
+    color:#D5CFCF;
+    font-size: 30px;
+}
+/*遮罩*/
+.bg{
+    position: absolute;
+    width: 800px;
+    height: 540px;
+    top:0;
+    left:0;
+   background: rgba(0, 0, 0, 0.5);
+   display: none;
+}
+.bg a{
+    display: block;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    color:#fff;
+    top:260px;
+    left:340px;
+    width: 120px;
+    padding:10px 0;
+    border-radius: 5px;
+    background-color: #0EB10E;
+}
+.bg a:last-child{
+    top:320px;
+}
+/*生命*/
+#life{
+    padding:10px 10px;
+    display: none;
+}
+#life img{
+    width: 40px;
+    margin-right: 5px;
+}
