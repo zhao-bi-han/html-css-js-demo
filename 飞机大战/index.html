@@ -6,17 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>飞机大战</title>
+    <link href="css/animate.min.css" rel="stylesheet"/>
     <link href="css/plan.css" rel="stylesheet"/>
 </head>
 
 <body>
     <div class="main" id="main">
+
         <div id="move">
             <img src="img/img_item.png" />
         </div>
         <div id="bullet"></div>
         <div id="enemy"></div>
-        <div class="start">
+        <div class="start" id="start">
+            <h1 class="animated flipInY">飞机大战</h1>
             <a href="javascript:;" id="startBtn">开始游戏</a>
         </div>
         <div id="life"></div>
@@ -30,9 +33,13 @@
             <a  href="javascript:;" id="signout">退出游戏</a>
         </div>
         <div id="gameover" class="bg">
-                 <h1>100分</h1>
+                 <h1></h1>
                 <span>游戏结束</span>
                 <a  href="javascript:;" id="again">重新开始</a>
+                <a  href="javascript:;" id="overSignOut">退出游戏</a>
+        </div>
+        <div id="info">
+            <img src="img/info.png"/>
         </div>
     </div>
 

@@ -36,7 +36,19 @@ body{
     width: 20px;
     position: absolute;
 }
-
+.start h1{
+    position: absolute;
+    width: 300px;
+    left:250px;
+    text-align: center;
+    top:220px;
+    font-size: 62px;
+    /* color:#79F5CE; */
+    background-image: -webkit-linear-gradient(92deg,#42b217,#79F5CE);
+    -webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+    font-family: "幼圆"
+}
 .start a {
     text-decoration: none;
     display: block;
@@ -87,7 +99,7 @@ body{
 #gameover span{
     display: block;
     width: 120px;
-    margin:30px auto;
+    margin:20px auto;
     text-align: center;
     color:#D5CFCF;
     font-size: 30px;
@@ -107,16 +119,24 @@ body{
     position: absolute;
     text-align: center;
     text-decoration: none;
-    color:#fff;
-    top:260px;
+    color:#fff; 
     left:340px;
     width: 120px;
     padding:10px 0;
     border-radius: 5px;
     background-color: #0EB10E;
 }
-.bg a:last-child{
+#gamecontinue a:last-child{
     top:320px;
+}
+#gamecontinue a{
+    top:260px;
+}
+#gameover a{
+    top:300px;
+}
+#gameover a:last-child{
+    top:355px;
 }
 /*生命*/
 #life{
@@ -126,4 +146,11 @@ body{
 #life img{
     width: 40px;
     margin-right: 5px;
+}
+#info {
+    position: absolute;
+    display: none;
+}
+#info img{
+   width: 64px;
 }

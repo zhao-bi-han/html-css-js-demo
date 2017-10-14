@@ -1,6 +1,7 @@
 window.onload = function () {
     var main = document.getElementById('main');
     var startBtn = document.getElementById('startBtn');
+    var startIndex=document.getElementById('start');
     var moveEle = document.getElementById('move');
     var bulletEle = document.getElementById('bullet');
     var enemyEle = document.getElementById("enemy");
@@ -15,7 +16,8 @@ window.onload = function () {
     var lifeImg = life.getElementsByTagName('img');
     var again = document.getElementById('again');
     var signout=document.getElementById('signout');
-
+    var info=document.getElementById("info");
+    var overSignOut=document.getElementById('overSignOut');
     var bulletTime = null, enemyTime = null, bulletMoveTime = null, enemyMoveTime = null;
     var num = 0;
     var bullets, enemys;
@@ -42,7 +44,7 @@ window.onload = function () {
 
     //开始游戏 执行
     startBtn.onclick = function (event) {
-        startBtn.style.display = "none";
+        startIndex.style.display = "none";
         moveEle.style.display = "block";
         right.style.display = 'block';
         life.style.display = 'block';
@@ -107,14 +109,18 @@ window.onload = function () {
 
             } else {
                 enemyEle.removeChild(enemys[i]);
-                if (lifeImg.length) {
+                lifeImg[lifeImg.length - 1].setAttribute('src','img/die.png');
+                moveEle.getElementsByTagName('img')[0].setAttribute('src','img/info.png');
+                setTimeout(()=>{
                     life.removeChild(lifeImg[lifeImg.length - 1]);
-                } else {
-                    gameover.style.display = "block";
-                    pauseFun();
-                    gameover_score.innerHTML = score + '分';
-                    score = 0;
-                }
+                    moveEle.getElementsByTagName('img')[0].setAttribute('src','img/img_item.png');
+                    if (lifeImg.length<1) {
+                        gameover.style.display = "block";
+                        pauseFun();
+                        gameover_score.innerHTML = score + '分';
+                    } 
+                },400)
+                
 
             }
         }
@@ -204,8 +210,13 @@ window.onload = function () {
     // 暂停
     pause.onclick = function () {
 
-        gamecontinue.style.display = "block";
+       
         pauseFun();
+        if(lifeImg.length<1){
+            gameover.style.display = "block";
+        }else{
+            gamecontinue.style.display = "block";
+        }
 
     }
     // 继续游戏
@@ -216,24 +227,27 @@ window.onload = function () {
     }
     // 重新开始
     again.onclick = function (event) {
+        score=0;
         planPosition(event);
         gameover.style.display = "none";
         scoreEle.innerHTML = score;
     }
     // 退出游戏
 
-    signout.onclick=function(){
-        startBtn.style.display = "block";
-        moveEle.style.display = "none";
-        right.style.display = 'none';
-        life.style.display = 'none';
-        gamecontinue.style.display = "none";
-        score=0;
-        life.innerHTML='';
-        enemyEle.innerHTML='';
-    }
-
-  
+    signout.onclick=SignOut;
+    overSignOut.onclick=SignOut;
+  //退出游戏
+  function SignOut(){
+    startBtn.style.display = "block";
+    gameover.style.display = "none";
+    moveEle.style.display = "none";
+    right.style.display = 'none';
+    life.style.display = 'none';
+    gamecontinue.style.display = "none";
+    score=0;
+    life.innerHTML='';
+    enemyEle.innerHTML='';
+  }
 
     // 暂定
     function pauseFun() {
